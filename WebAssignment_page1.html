@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function searcher(){
+			var key= document.getElementById("kw").value;
+			window.location.replace("https://www.google.com/search?q="+key+"&oq="+key+"&aqs=chrome..69i57j0l7.679j0j7&sourceid=chrome&ie=UTF-8");
+		}
+	</script>
+	<style>
+		body{
+			background-image: url("bg.png");
+		}
+		#header,#nav,#aboutus,#details,#joinus{
+			border-radius: 25px;
+			border: 2px solid gray;
+			margin: 10px;
+			padding: 15px;
+			box-shadow: 5px 5px 5px #888888;
+		}
+		#header h1{
+			color: red;
+			display: inline;
+		}
+		#header img{
+			float:left;
+		}
+		#header{
+			background-color:lightblue;
+			order:1 ;
+			width: auto;
+			height: 100px
+		}
+		#logo:hover{
+			transition-duration: 3s;
+			height:100px;
+			width:100px;
+		}
+		#flex-container {
+			display: flex;
+			flex-flow: row wrap;
+		}
+		#details {
+			order: 2;
+			display: flex;
+			background-color: lightgreen;
+			flex-flow: row wrap;
+			height: 700px;
+		}
+		
+		#nav {
+			order: 3;
+			width: 170px;
+			display: flex;
+			flex-direction: column;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#header form {
+			float: right;
+		}
+		#aboutus {
+			order: 5;
+			width: 1200px;
+			height: 300px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#aboutus h1{
+			position: relative;
+			text-align: center;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		#joinus{
+			width:1200px;
+			order: 6;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#joinus a:hover{
+			color:red;
+		}
+		#aboutus a:hover{
+			color:red;
+		}
+		#urlchange{
+			height:600px;
+			width:1200px;
+			order:4;
+			display: flex;
+			flex-flow: row wrap;
+		}
+		
+		#nav  a{
+		text-decoration:none;
+		padding-bottom:10px;
+		padding-top:10px;
+		padding-left:20px;
+		padding-right:20px;
+		line-height:1.2em;
+		color:white;
+		display:block;
+	`	}
+		#nav  ul{
+			list-style:none;
+			margin:0;
+			padding:0;
+			width:150px;
+			border-radius:10px;
+			text-shadow:2px 2px 2px red;
+			display:inline-block;
+		}
+		#nav a:hover{
+		background-color:blue;
+		color:black;
+		}
+		.sub {
+			overflow:hidden;
+			height:0;
+			transition: height 500ms;
+		}
+		#nav:hover .sub{
+			overflow:visible;
+			height:40px;
+		}
+		@media only screen and (max-height: 750px){
+			#nav{
+				order:6;
+			}
+			#joinus{
+				order:3;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="header">
+		<img src="musictitle.png" id="logo" width="70" height="70"  />
+		<h1>WELCONE TO MUSIC CLUB MAIN PAGE!</h1>
+		<br/>
+		Want to find something?
+		<form method="post" enctype="multipart/form-data">
+            <input type="text" id="kw" placeholder="Type keywords to search" size="20" />
+		    <input type="button" value="Search" onclick="searcher()"/>
+		</form>
+	</div>
+	<div id="details">
+	<Center><h1>More Details</h1></center>
+	<div id="nav">
+	<ul>
+		<li>
+	
+		<h2><em>Instruments</em></h2>
+		
+		<ul class="sub">
+        <div>
+          <span class="label"><h3>Trumpet</h3></span>
+          <a href="https://en.wikipedia.org/wiki/Trumpet"><img src="Trumpet.png" width="50" height="50"/></a>
+        </div>
+		
+		
+        <div>
+          <span class="label"><h3>Piano</h3></span>
+		  <a href="https://en.wikipedia.org/wiki/Piano"><img src="Piano.png" width="50" height="50"/></a>
+        </div>
+		
+		
+		
+        <div>
+          <span class="label"><h3>Guitar</h3></span>
+		 <a href="https://en.wikipedia.org/wiki/Guitar"><img src="Guitar.png" width="50" height="50"/></a>
+        </div>
+		
+		</ul>
+		
+		</li>
+	</ul>
+		
+		
+	</div>
+	<div id="urlchange">
+	<div id="aboutus">
+		<h1><a href="WebAssignment_page2.html" id="aboutusa">About us</a><h1>
+	</div>
+	<div id="joinus">
+		<h2><center>Are you getting interested on our club?</center></h2>
+		<br/>
+		<h2><center>Well Then....</center></h2>
+		<br/>
+		<h1><a href="WebAssignment_page3.html"><center>Click On Me to To The Form Page!!</center></a></h1>
+	</div>
+	</div>
+	</div>
+	
+</body>
+</html>

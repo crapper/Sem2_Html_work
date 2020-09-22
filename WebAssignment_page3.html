@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function startform() {
+			document.getElementsByName("sub1")[0].disabled=true;
+			document.getElementsByName("qty")[0].disabled=true;
+			document.getElementsByName("sub2")[0].disabled=true;
+			document.getElementsByName("total")[0].disabled=true;
+		}
+		function borrow_price(){
+			var indexa = document.getElementById("instrument2");
+			var item_value =indexa.options[indexa.selectedIndex].value; 
+			var total = parseFloat(document.getElementById("tot").value);
+			document.getElementById("s01").value = item_value;
+			total = total + parseFloat(item_value);
+			document.getElementById("tot").value = total +"";
+			if(parseFloat(item_value) == 0){
+				document.getElementById("tot").value = document.getElementById("s02").value;
+			}
+		}
+		function Open(){
+			var indexb = document.getElementById("product2");
+			var item_valueb =indexb.options[indexb.selectedIndex].value; 
+			if  (parseFloat(item_valueb) != 0){
+				document.getElementsByName("qty")[0].disabled=false;
+			}
+			else
+				if(parseFloat(item_valueb) == 0){
+					document.getElementsByName("qty")[0].value = ""
+					document.getElementById("s02").value = (0.0)+ ""
+					document.getElementById("tot").value = document.getElementById("s01").value;
+					document.getElementsByName("qty")[0].disabled=true;
+				}
+		}
+		function borrow_price2(){
+			
+			var indexc = document.getElementById("product2");
+			var item_valuec = indexc.options[indexc.selectedIndex].value; 
+			var qty_ordered2 = document.getElementById("qty2").value;
+			var total2 = parseFloat(document.getElementById("tot").value);
+			document.getElementById("s02").value = (parseFloat(item_valuec)*parseFloat(qty_ordered2))+"";
+			total2 = total2 + (parseFloat(item_valuec)*parseFloat(qty_ordered2));
+			document.getElementById("tot").value = total2 +"";
+		}
+		function welcome(){
+			var name = document.getElementById("name").value;
+			var gendermale = document.getElementById("male").checked;
+			var genderfemale = document.getElementById("female").checked;
+			var payment = document.getElementById("tot").value;
+			if ((gendermale == true) && (payment != 0)){
+				alert("Welcome Mr."+name+"\nYou are now one of our member!\nYou need to pay for $"+payment+"\nPlease come to our office and finish the payment!");
+			}
+			else
+				if ((genderfemale ==true) && (payment != 0)){
+					alert("Welcome Miss."+name+" \nYou are now one of our member!\nYou need to pay for $"+payment+"\nPlease come to our office and finish the payment!");
+				}
+				else
+					if((genderfemale ==true) && (payment == 0)){
+						alert("Welcome Miss."+name+" \nYou are now one of our member!\nYou can apply any borrow service to our office next time!");
+					}
+					else
+						if((gendermale ==true) && (payment == 0)){
+							alert("Welcome Mr."+name+" \nYou are now one of our member!\nYou can apply any borrow service to our office next time!");
+						}
+		}
+	</script>
+	<style>
+		body{
+			background-image: url("bg.png");
+		}
+		#total{
+			display: flex;
+			flex-flow: row wrap;
+			border-radius: 25px;
+			border: 2px solid gray;
+			background-color:lightblue;
+			width: 100%;
+			height: 90vh;
+			text-align: center;
+		}
+		#tophalf{
+			order:2;
+			border-radius: 25px;
+			border: 2px solid gray;
+			background-color:lightgreen;
+			width: 49%;
+			height: 10%;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#forma{
+			
+			order:2;
+			border-radius: 25px;
+			border: 2px solid gray;
+			background-color:lightgreen;
+			order:3;
+			margin: 0 auto 50px;
+		}
+	</style>
+</head>
+<body onload="startform();">
+	<div id="total">
+	`	<div id="tophalf">
+			<a href="WebAssignment_page1.html"><h1>back to title</h1></a>
+		</div>
+		<div id="tophalf">
+			<a href="WebAssignment_page2.html"><h1>To Information page</h1></a>
+		</div>
+		<div id="forma">
+		<form method="post" id="formi" onsubmit="welcome()">
+			<h1>Form For Membership Of Music Club</h1>
+			 Name *:<input type="text"  id="name" required="required" />
+			 <br/>
+			 Email *:<input type="email"  id="mail" required="required" />
+			  <br/>
+			 Number:<input type="text" id="phone" pattern="[2-9]{1}[0-9]{7}" title="Please enter a correct phone number"/>
+			 <fieldset> 
+				<legend>Gender *</legend> 
+					<input type="radio" id="male" name="gender" value="M" required="required" />Male 
+					<input type="radio" id="female" name="gender" value="F"  />Female 
+			</fieldset>
+			<fieldset>
+				<legend>Borrowing system</legend>
+				<table>
+				<td width="70">Instrument:</td>
+				<td width="350">
+					<select name="instrument" id="instrument2" onChange="borrow_price();">
+						<option value="0">No need/Self instrument
+						<option value="100.00">Piano ($100.00)
+						<option value="75.00">Trumpt ($75.00)
+						<option value="65.00">Guitar ($65.00)
+						<option value="65.00">Drum ($65.00)
+					</select>
+				</td>
+				<td>
+					<input type="text" name="sub1" id="s01" size="7" value="0.00">
+				</td>
+				<tr>
+				<td width="70">Stage:</td>
+				<td width="350">
+					<select name="product" id="product2" onChange="Open();">
+						<option value="0">No need
+						<option value="200.00">Hall($200.00 per day)
+						<option value="100.00">Room($100.00 per day)
+					</select>
+					Days:<input type="text" name="qty" id="qty2" pattern="[0-7]{1}" title="Sorry we can only borrow for 7 day long" size="1" onChange="borrow_price2();">
+				</td>
+				<td>
+					<input type="text" name="sub2" id="s02" size="7" value="0.00">
+				</td>
+				</tr>
+				  <tr>
+					<td colspan="2" align="right">
+						Total:
+					</td>
+					<td>
+						<input type="text" name="total" id="tot" size="7" value="0.00">
+					</td>
+				</tr>
+				</table>
+			</fieldset>
+			
+			<input type="submit" value="Submit" />
+			<input type="reset" value="Reset" />
+		</form>
+		</div>
+	</div>
+</body>
+</html>

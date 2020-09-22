@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		body{
+			background-image: url("bg.png");
+		}
+		#whole{
+			display: flex;
+			flex-flow: row wrap;
+			border-radius: 25px;
+			border: 2px solid gray;
+			background-color:lightblue;
+			width: 100%;
+			height: 90vh;
+		}
+		#tophalf{
+			order:2;
+			border-radius: 25px;
+			border: 2px solid gray;
+			background-color:lightgreen;
+			width: 49%;
+			height: 10%;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#tophalf a{
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		#tophalf a:hover{
+			color: red;
+		}
+		#content {
+			order:3;
+			border-radius: 25px;
+			border: 2px solid gray;
+			background-color:brown;
+			width: 49%;
+			height: 45%;
+			font-size: 20px;
+			column-count: 3;
+			text-align: center;
+			vertical-align: middle;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#content2 {
+			display: flex;
+			order:4;
+			border-radius: 25px;
+			border: 2px solid gray;
+			background-color:yellow;
+			width: 98%;
+			height: 30%;
+			justify-content:center;
+			align-item:center;
+		}
+		#content2 a:hover {
+			color: red;
+		}
+		#logo:hover{
+			transition-duration: 3s;
+			height:100px;
+			width:100px;
+		}
+		#footer a:hover{
+			color : red;
+		}
+		@media only screen and (max-height: 750px){
+			#content {
+				order:2;
+			}
+			#tophalf{
+				order:3;
+			}
+		}
+		@media only screen and (max-width: 750px){
+			#content {
+				column-count: 2;
+			}
+		}
+		
+	</style>
+	
+</head>
+<body>
+	<div id="whole">
+		<div id="tophalf">
+			<a href="WebAssignment_page1.html"><h1>back to title</h1></a>
+		</div>
+		<div id="tophalf">
+			<a href="WebAssignment_page3.html"><h1>To form page</h1></a>
+		</div>
+		<div id="content">
+			<h2>What do we do?</h2>
+			<div>We are an music club that allow all type of music lover to take part in,
+			to enjoy playing music together, we will have music event with a wide varity, from solo to concert,
+			almost every type of play style you can find and enjoy here.
+			We also have the instrument and stage borrow service that you can inform us in your application in form page.</div>
+		</div>
+		<div id="content">
+			<h2>What is music instrument?</h2>
+			<div>On this website you can find information and history of music instrument, if you want to know more, please visit this website and click the form button and complete the form to join us for more information and skills for music instrument!</div>
+			<div id="footer">Resources: <a href="https://en.wikipedia.org/wiki/Musical_instrument">Music intrument description of wikipedia</a></div>
+		</div>
+		<div id="content2">
+				<div><img src="musictitle.png" id="logo" width="70" height="70"  />
+				<p><h3>This is our club symbol, an eighth note</h3></div>
+				<div><h4>There are many symbol in music level, here you can get more information for these symbols<h4>
+				<h2>Resources: <a href="https://en.wikipedia.org/wiki/Musical_note">Music note description of wikipedia</a></h2></div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>
